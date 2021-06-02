@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="I&#x2F;O 的一些心得为什么说是心得呢?因为一点点说是不可能说的,我也不是来copy做教学的,所以只能面向有基础的人咯 这些心得可能包含的主题:首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈. IO系统系统是由软件和硬件组成的这里要注意: 软件的主要任务不仅起到信息的交流还需要做好输入输出系统与主机工作的协调,做“好”是关键.此外IO指令和通道指令之间似乎还有一层关系在于:存">
+    <meta name="description" content="I&#x2F;O 的一些心得这些心得可能包含的主题:首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈. IO系统系统是由软件和硬件组成的这里要注意: 软件的主要任务不仅起到信息的交流还需要做好输入输出系统与主机工作的协调,做“好”是关键.此外IO指令和通道指令之间似乎还有一层关系在于:存在通道的IO系统会将接收的IO指令转换成通道指令(可能更加复杂同时具有更多的位数,更大的信息量)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IOthinking">
 <meta property="og:url" content="http://example.com/2021/06/02/IOthinking/index.html">
 <meta property="og:site_name" content="dazhanzheng">
-<meta property="og:description" content="I&#x2F;O 的一些心得为什么说是心得呢?因为一点点说是不可能说的,我也不是来copy做教学的,所以只能面向有基础的人咯 这些心得可能包含的主题:首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈. IO系统系统是由软件和硬件组成的这里要注意: 软件的主要任务不仅起到信息的交流还需要做好输入输出系统与主机工作的协调,做“好”是关键.此外IO指令和通道指令之间似乎还有一层关系在于:存">
+<meta property="og:description" content="I&#x2F;O 的一些心得这些心得可能包含的主题:首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈. IO系统系统是由软件和硬件组成的这里要注意: 软件的主要任务不仅起到信息的交流还需要做好输入输出系统与主机工作的协调,做“好”是关键.此外IO指令和通道指令之间似乎还有一层关系在于:存在通道的IO系统会将接收的IO指令转换成通道指令(可能更加复杂同时具有更多的位数,更大的信息量)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-02T14:59:14.000Z">
-<meta property="article:modified_time" content="2021-06-02T14:59:44.920Z">
+<meta property="article:modified_time" content="2021-06-02T15:10:14.789Z">
 <meta property="article:author" content="dazhanzheng">
 <meta property="article:tag" content="for my own interest">
 <meta name="twitter:card" content="summary">
@@ -134,7 +134,7 @@
       
         <time datetime="2021-06-02T14:59:14.000Z" itemprop="datePublished">2021-06-02</time>
         
-        (Updated: <time datetime="2021-06-02T14:59:44.920Z" itemprop="dateModified">2021-06-02</time>)
+        (Updated: <time datetime="2021-06-02T15:10:14.789Z" itemprop="dateModified">2021-06-02</time>)
         
       
     </div>
@@ -149,8 +149,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="I-O-的一些心得"><a href="#I-O-的一些心得" class="headerlink" title="I/O 的一些心得"></a>I/O 的一些心得</h1><p>为什么说是心得呢?因为一点点说是不可能说的,我也不是来copy做教学的,所以只能面向有基础的人咯</p>
-<h2 id="这些心得可能包含的主题"><a href="#这些心得可能包含的主题" class="headerlink" title="这些心得可能包含的主题:"></a>这些心得可能包含的主题:</h2><p>首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈.</p>
+    <h1 id="I-O-的一些心得"><a href="#I-O-的一些心得" class="headerlink" title="I/O 的一些心得"></a>I/O 的一些心得</h1><h2 id="这些心得可能包含的主题"><a href="#这些心得可能包含的主题" class="headerlink" title="这些心得可能包含的主题:"></a>这些心得可能包含的主题:</h2><p>首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈.</p>
 <h3 id="IO系统"><a href="#IO系统" class="headerlink" title="IO系统"></a>IO系统</h3><h4 id="系统是由软件和硬件组成的"><a href="#系统是由软件和硬件组成的" class="headerlink" title="系统是由软件和硬件组成的"></a>系统是由软件和硬件组成的</h4><p>这里要注意:</p>
 <p><strong>软件</strong>的主要任务不仅起到信息的交流还需要做好输入输出系统与主机工作的协调,做“<strong>好</strong>”是关键.此外IO指令和通道指令之间似乎还有一层关系在于:存在通道的IO系统会将接收的IO指令转换成通道指令(可能更加复杂同时具有更多的位数,更大的信息量)</p>
 <p><strong>硬件</strong>的主要任务则是完成数据、控制信号的传送,和相应逻辑的实现.一定程度来说,硬件显然限制了系统整体的上限.</p>
