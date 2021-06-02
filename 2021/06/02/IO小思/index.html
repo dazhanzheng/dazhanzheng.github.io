@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="title: IO小思date: 2021-06-02 22:15:06tags: I&#x2F;O 的一些心得为什么说是心得呢?因为一点点说是不可能说的,我也不是来copy做教学的,所以只能面向有基础的人咯 这些心得可能包含的主题:首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈. IO系统系统是由软件和硬件组成的这里要注意: 软件的主要任务不仅起到信息的交流还需要做好输入输出系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dazhanzheng">
+<meta property="og:url" content="http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/index.html">
+<meta property="og:site_name" content="dazhanzheng">
+<meta property="og:description" content="title: IO小思date: 2021-06-02 22:15:06tags: I&#x2F;O 的一些心得为什么说是心得呢?因为一点点说是不可能说的,我也不是来copy做教学的,所以只能面向有基础的人咯 这些心得可能包含的主题:首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈. IO系统系统是由软件和硬件组成的这里要注意: 软件的主要任务不仅起到信息的交流还需要做好输入输出系">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-02T14:16:17.218Z">
+<meta property="article:modified_time" content="2021-06-02T14:16:17.218Z">
+<meta property="article:author" content="dazhanzheng">
+<meta property="article:tag" content="for my own interest">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          
+            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/3be50ea276772ce103ee63e277f3c40b?s=48">
+          
+        
+      
+      
+        
+          
+            <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/3be50ea276772ce103ee63e277f3c40b?s=192" sizes="192x192">
+          
+        
+      
+      
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/3be50ea276772ce103ee63e277f3c40b?s=180">
+          
+        
+      
+    
+    <!-- title -->
+    <title>dazhanzheng</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post " href="/2021/05/26/Something-about-FA/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#I-O-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97"><span class="toc-number">1.</span> <span class="toc-text">I&#x2F;O 的一些心得</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%BA%9B%E5%BF%83%E5%BE%97%E5%8F%AF%E8%83%BD%E5%8C%85%E5%90%AB%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">这些心得可能包含的主题:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">IO系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%98%AF%E7%94%B1%E8%BD%AF%E4%BB%B6%E5%92%8C%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90%E7%9A%84"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">系统是由软件和硬件组成的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%9A%84IO%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">整体的IO的发展</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.1.2.</span> <span class="toc-text">IO接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E6%98%AF%E6%9C%89%E8%B6%A3%E7%9A%84"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">接口的定义是有趣的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B-%E5%88%86%E7%B1%BB%E4%BE%9D%E6%8D%AE"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">接口类型(分类依据)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E4%BF%A1%E6%81%AF%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">IO信息交换方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA-direct-memory-access"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">DMA(direct memory access):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E4%B8%8E%E4%B8%BB%E5%AD%98%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">DMA与主存交换方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">DMA方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E5%92%8C%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">预处理和后处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">DMA接口与系统的连接方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.3.6.</span> <span class="toc-text">DMA控制器的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%96%B9%E5%BC%8F%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%96%B9%E5%BC%8F%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.3.7.</span> <span class="toc-text">DMA方式与中断方式的比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E9%81%93"><span class="toc-number">1.1.3.8.</span> <span class="toc-text">通道</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E6%83%B3"><span class="toc-number">1.2.</span> <span class="toc-text">感想</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">dazhanzheng</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-06-02T14:16:17.218Z" itemprop="datePublished">2021-06-02</time>
+        
+        (Updated: <time datetime="2021-06-02T14:16:17.218Z" itemprop="dateModified">2021-06-02</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <hr>
+<p>title: IO小思<br>date: 2021-06-02 22:15:06<br>tags:</p>
+<h1 id="I-O-的一些心得"><a href="#I-O-的一些心得" class="headerlink" title="I/O 的一些心得"></a>I/O 的一些心得</h1><p>为什么说是心得呢?因为一点点说是不可能说的,我也不是来copy做教学的,所以只能面向有基础的人咯</p>
+<h2 id="这些心得可能包含的主题"><a href="#这些心得可能包含的主题" class="headerlink" title="这些心得可能包含的主题:"></a>这些心得可能包含的主题:</h2><p>首先,为什么人要研究IO的原因是,IO的性能逐渐开始成为计算机效率的瓶颈.</p>
+<h3 id="IO系统"><a href="#IO系统" class="headerlink" title="IO系统"></a>IO系统</h3><h4 id="系统是由软件和硬件组成的"><a href="#系统是由软件和硬件组成的" class="headerlink" title="系统是由软件和硬件组成的"></a>系统是由软件和硬件组成的</h4><p>这里要注意:</p>
+<p><strong>软件</strong>的主要任务不仅起到信息的交流还需要做好输入输出系统与主机工作的协调,做“<strong>好</strong>”是关键.此外IO指令和通道指令之间似乎还有一层关系在于:存在通道的IO系统会将接收的IO指令转换成通道指令(可能更加复杂同时具有更多的位数,更大的信息量)</p>
+<p><strong>硬件</strong>的主要任务则是完成数据、控制信号的传送,和相应逻辑的实现.一定程度来说,硬件显然限制了系统整体的上限.</p>
+<h4 id="整体的IO的发展"><a href="#整体的IO的发展" class="headerlink" title="整体的IO的发展"></a>整体的IO的发展</h4><p>大致的目标就是减少对CPU性能的损耗直至互不影响.在这一基础上从早期的串行工作到后来的DMA(Direct Memory Access),最后采用从属于CPU的特殊<strong>处理器</strong>通道来统一多个设备接口对总线的请求.最后甚至直接用IO处理机进行IO的管理与控制,其与CPU的并行性更高,这里是不涉及的.</p>
+<h3 id="IO接口"><a href="#IO接口" class="headerlink" title="IO接口"></a>IO接口</h3><h4 id="接口的定义是有趣的"><a href="#接口的定义是有趣的" class="headerlink" title="接口的定义是有趣的"></a><strong>接口</strong>的定义是有趣的</h4><p>两个系统或者两个部件之间的交接部分,即既可以是两种硬设备之间的连接电路,也可以是两个软件之间的共同逻辑边界.因此,核心在于像消防栓的水管一样咬在一起.</p>
+<p>出于IO设备与CPU之间的物理以及软件指令上的巨大差异,需要一个逻辑简单且强大的接口.它能统一多个设备进行设备的选择(选择电路),转换控制命令(),更能对多种设备进行不同的物理信息的转换,缓冲CPU和IO设备之间数据处理的巨大速度差,以及监视设备的工作状态.因此接口是一个大的<strong>整体</strong>.</p>
+<p>而类似的<strong>端口</strong>只是接口上的寄存器的统称而已,CPU对接口的信息读写很显然只能对这些寄存器端口进行操作.</p>
+<p>因此,CPU和接口之间的信号通路和接口的寄存器以及电路功能对应起来就是:</p>
+<blockquote>
+<p>CPU:</p>
+<p>数据缓冲寄存器(data buffer register) –&gt; 数据线</p>
+<p>设备状态标记/寄存器 –&gt;  状态线</p>
+<p>命令寄存器和命令译码器 –&gt; 命令线</p>
+<p>设备选择电路 –&gt; 地址线;</p>
+<p>其中数据线,状态线,命令线都与地址线决定的设备相连</p>
+</blockquote>
+<h4 id="接口类型-分类依据"><a href="#接口类型-分类依据" class="headerlink" title="接口类型(分类依据)"></a>接口类型(分类依据)</h4><p>​    数据传送方式:串行接口,并行接口</p>
+<p>​    功能选择的灵活性:可编程接口,不可编程接口(高下立判吧)</p>
+<p>​    通用性:通用和专用(能够使用的IO设备种类不同)</p>
+<p>​    数据传送的控制方式:程序型(中断)和DMA(高速IO)</p>
+<h3 id="IO信息交换方式"><a href="#IO信息交换方式" class="headerlink" title="IO信息交换方式"></a>IO信息交换方式</h3><p>跳过查询和中断</p>
+<h4 id="DMA-direct-memory-access"><a href="#DMA-direct-memory-access" class="headerlink" title="DMA(direct memory access):"></a>DMA(direct memory access):</h4><p>目的:高速交换批量数据</p>
+<p>首先很显然,根据它的名字就可以猜测:主存储器与IO设备直接进行数据交换,别碍着CPU的事.需要部分连续地址主存作为专用的缓冲器.但在其进行数据的传输前需要CPU对缓冲器和DMA控制器进行预处理和后处理.通过地址和数据量计数保证数据传送的完整性或者是这个过程的结束.</p>
+<p>过程大概:外设发出DMA请求-&gt;CPU响应请求,DMA接管总线控制-&gt;DMA对内存寻址,计数传输数据 -&gt;向CPU报告DMA操作结束</p>
+<p>此过程中并未提及上文的预处理和后处理,由<strong>CPU</strong>上的管理程序负责,DMA只负责找到内存单元并正确写入.</p>
+<h4 id="DMA与主存交换方式"><a href="#DMA与主存交换方式" class="headerlink" title="DMA与主存交换方式"></a>DMA与主存交换方式</h4><ol>
+<li>在DMA控制使用主存的时候使CPU不执行或者保持状态 : 浪费但控制简单</li>
+<li>周期挪用:当DMA需要控制总线时占用一个或者多个CPU的周期,即让CPU暂停访存一个周期,然后继续执行程序:IO读写大于主存周期,即不存在连续占用的情况(DMA请求时,除了CPU正在使用主存以外,DMA的优先级高于CPU)</li>
+<li>DMA和CPU约定交替访存:不需要申请和归还使用权,控制权的转移速度快,DMA效率高,控制复杂</li>
+</ol>
+<h4 id="DMA方式"><a href="#DMA方式" class="headerlink" title="DMA方式"></a>DMA方式</h4><p>控制器基本组成:</p>
+<ul>
+<li>AR(address register):计算字存储地址,自动加一</li>
+<li>WC(word counter):记录长度</li>
+<li>BR(buffer register):用于暂存每次传送的数据</li>
+<li>DAR(device address register):害,没什么好说的吧</li>
+<li>DMA控制状态逻辑(FSM?):管理DMA传送过程,修改相关信息和状态</li>
+<li>中断机构:字计数器溢出时触发中断</li>
+</ul>
+<h4 id="预处理和后处理"><a href="#预处理和后处理" class="headerlink" title="预处理和后处理"></a>预处理和后处理</h4><p>预处理:CPU通过<strong>IO指令</strong>给DMA控制器预置初值,取状态以及设置参数(与DMA控制状态联系):传送方向,设备地址与主存地址,字计数器.</p>
+<p>后处理:校验送入主存的数据是否正确,是否继续使用DMA.</p>
+<h4 id="DMA接口与系统的连接方式"><a href="#DMA接口与系统的连接方式" class="headerlink" title="DMA接口与系统的连接方式"></a>DMA接口与系统的连接方式</h4><p>公用和独立:区别公用的请求汇聚成一条线,响应时依次查询,损失时间;独立的请求与响应都是一对一的关系,但是对CPU的占用更多,更复杂</p>
+<h4 id="DMA控制器的类型"><a href="#DMA控制器的类型" class="headerlink" title="DMA控制器的类型"></a>DMA控制器的类型</h4><p>选择型和多路型:一个是逻辑上只允许一个设备连接工作,一个是逻辑上可以多个设备同时工作.也即是由于</p>
+<p>注意!!:上面两者一个是系统与接口的关系,一个是接口与设备的关系,都存在是否有“小总线”的两种方式,但是两组的“小总线”都是请求并,响应串的形式</p>
+<h4 id="DMA方式与中断方式的比较"><a href="#DMA方式与中断方式的比较" class="headerlink" title="DMA方式与中断方式的比较"></a>DMA方式与中断方式的比较</h4><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">中断方式</th>
+<th align="left">DMA方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">数据传送</td>
+<td align="left">程序</td>
+<td align="left">硬件</td>
+</tr>
+<tr>
+<td align="left">响应时间</td>
+<td align="left">指令执行结束</td>
+<td align="left">存取周期结束</td>
+</tr>
+<tr>
+<td align="left">处理异常情况</td>
+<td align="left">能</td>
+<td align="left">不能</td>
+</tr>
+<tr>
+<td align="left">中断请求用途</td>
+<td align="left">传送数据</td>
+<td align="left">溢出、后处理</td>
+</tr>
+<tr>
+<td align="left">优先级</td>
+<td align="left">低</td>
+<td align="left">高</td>
+</tr>
+</tbody></table>
+<p>之所以存在两者如此大的区别,本质上是其数据传输软件与硬件的区别.</p>
+<h4 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h4><p><strong>代替</strong>CPU管理控制外设的独立部件,能执行有限IO指令集合——通道命令的IO处理部件</p>
+<p>一个主机可以连接多个通道,每个通道可以连接多台设备(不限速度,种类):提高了主机与通道操作的并行能力以及同层级之间的并行操作能力;同时提供了增减外围设备的灵活性;</p>
+<p>采用通道方式组织输入输出的系统,通常是主机-&gt;通道-&gt;<strong>设备管理器</strong>-&gt;IO设备:CPU启动通道后,通道自动去内存取出通道指令并执行,知道结束后发出中断请求,进行通道结束处理工作</p>
+<p>具体任务:</p>
+<ol>
+<li>接受CPU的<strong>IO指令</strong></li>
+<li>从内存中选取属于该通道程序的<strong>通道指令</strong>,译码后向设备控制器和设备发送各种命令</li>
+<li>组织数据传送,根据需要提供缓存,提供数据存入内存的地址和数据量</li>
+<li>从外围设备得到设备的状态信息,并以此形成自身的状态信息(集合),根据要求将状态送至指定的内存单元供CPU使用</li>
+<li>将外围设备的中断请求和通道本身的中断请求,按次序及时报告CPU</li>
+</ol>
+<p>通道的发展:</p>
+<p>IOP(processor):</p>
+<p>​    不是一台独立的计算机而是一个部件:和CPU并行工作,提供高速的DMA处理能力,实现数据的高速传送;</p>
+<p>​    有些IOP提供数据的变换、搜索、字装配分拆能力.</p>
+<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>我再看看,很复杂,我觉得还有一些各种IO之间的区别还有待好好斟酌一下—</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#I-O-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97"><span class="toc-number">1.</span> <span class="toc-text">I&#x2F;O 的一些心得</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%BA%9B%E5%BF%83%E5%BE%97%E5%8F%AF%E8%83%BD%E5%8C%85%E5%90%AB%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">这些心得可能包含的主题:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">IO系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%98%AF%E7%94%B1%E8%BD%AF%E4%BB%B6%E5%92%8C%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90%E7%9A%84"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">系统是由软件和硬件组成的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%9A%84IO%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">整体的IO的发展</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.1.2.</span> <span class="toc-text">IO接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E6%98%AF%E6%9C%89%E8%B6%A3%E7%9A%84"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">接口的定义是有趣的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B-%E5%88%86%E7%B1%BB%E4%BE%9D%E6%8D%AE"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">接口类型(分类依据)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E4%BF%A1%E6%81%AF%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">IO信息交换方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA-direct-memory-access"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">DMA(direct memory access):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E4%B8%8E%E4%B8%BB%E5%AD%98%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">DMA与主存交换方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">DMA方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E5%92%8C%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">预处理和后处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">DMA接口与系统的连接方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.3.6.</span> <span class="toc-text">DMA控制器的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%96%B9%E5%BC%8F%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%96%B9%E5%BC%8F%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.3.7.</span> <span class="toc-text">DMA方式与中断方式的比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E9%81%93"><span class="toc-number">1.1.3.8.</span> <span class="toc-text">通道</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E6%83%B3"><span class="toc-number">1.2.</span> <span class="toc-text">感想</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/06/02/IO%E5%B0%8F%E6%80%9D/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    dazhanzheng
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86660611-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-86660611-1');
+    </script>
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
